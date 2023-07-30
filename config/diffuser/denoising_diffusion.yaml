@@ -1,0 +1,11 @@
+_target_: diffusion.denoising_diffusion.GaussianDiffusion
+
+timesteps: 1000
+sampling_timesteps: null
+auto_normalize: True
+objective: pred_v
+beta_schedule: cosine
+ddim_sampling_eta: 0.
+offset_noise_strength: 0
+min_snr_loss_weight: False
+min_snr_gamma: 5

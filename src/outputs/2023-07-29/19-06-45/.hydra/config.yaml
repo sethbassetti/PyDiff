@@ -1,0 +1,62 @@
+project_name: diffusion
+dataset:
+  shared:
+    _target_: torchvision.datasets.CIFAR10
+    download: true
+    root: ./data/
+    transform:
+      _target_: torchvision.transforms.ToTensor
+  train:
+    train: true
+  val:
+    train: false
+trainer:
+  _target_: base_trainer.BaseTrainer
+  epochs: 20
+  log_every: 1000
+  optimizer:
+    _target_: torch.optim.Adam
+    lr: 0.0001
+    betas:
+    - 0.9
+    - 0.999
+  dataloader:
+    batch_size: 64
+    num_workers: 4
+    pin_memory: true
+model:
+  _target_: models.base_unet.Unet
+  dim: 128
+  init_dim: null
+  out_dim: null
+  dim_mults:
+  - 1
+  - 2
+  - 4
+  - 8
+  channels: 3
+  self_condition: false
+  resnet_block_groups: 8
+  learned_variance: false
+  learned_sinusoidal_cond: false
+  random_fourier_features: false
+  learned_sinusoidal_dim: 16
+  attn_dim_head: 32
+  attn_heads: 4
+  full_attn:
+  - true
+  - true
+  - true
+  - true
+  flash_attn: false
+diffuser:
+  _target_: diffusion.denoising_diffusion.GaussianDiffusion
+  timesteps: 1000
+  sampling_timesteps: null
+  auto_normalize: true
+  objective: pred_v
+  beta_schedule: cosine
+  ddim_sampling_eta: 0.0
+  offset_noise_strength: 0
+  min_snr_loss_weight: false
+  min_snr_gamma: 5

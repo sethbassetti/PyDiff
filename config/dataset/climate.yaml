@@ -1,0 +1,9 @@
+shared:
+  _target_: climate_data.ClimateDataset
+  seq_len: 1
+
+train:
+  json_path: "data/IPSL/rcp85_train.json"
+
+val:
+  json_path: "data/CESM/rcp85_train.json"

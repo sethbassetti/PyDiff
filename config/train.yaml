@@ -1,0 +1,10 @@
+defaults:
+    - _self_
+    - dataset: mnist
+    - trainer: mnist
+    - model: base_unet
+    - diffuser: denoising_diffusion
+
+project_name: diffusion
+
+

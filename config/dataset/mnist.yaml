@@ -1,0 +1,13 @@
+shared:
+  _target_: torchvision.datasets.MNIST
+  download: True
+  root: './data/'
+  transform:
+    _target_: torchvision.transforms.ToTensor
+
+
+train:
+  train: True
+
+val:
+  train: False
