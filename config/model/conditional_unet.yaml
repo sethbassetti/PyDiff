@@ -1,0 +1,16 @@
+_target_: models.conditional_unet.Unet
+
+dim: 128
+num_classes: 10
+cond_drop_prob: 0.15
+init_dim: null
+out_dim: null
+dim_mults: [1,2,4,8]
+channels: 3
+resnet_block_groups: 8
+learned_variance: False
+learned_sinusoidal_cond: False
+random_fourier_features: False
+learned_sinusoidal_dim: 16
+attn_dim_head: 32
+attn_heads: 4

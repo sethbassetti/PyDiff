@@ -1,0 +1,16 @@
+_target_: trainers.base_trainer.BaseTrainer
+
+epochs: 20
+log_every: 1000
+optimizer:
+    _target_: torch.optim.Adam
+    lr: 0.0001
+    betas: [0.9, 0.999]
+dataloader:
+    batch_size: 32
+    num_workers: 4
+    pin_memory: True
+ema:
+    _target_: ema_pytorch.EMA
+    beta: 0.995
+    update_every: 10

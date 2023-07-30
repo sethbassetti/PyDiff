@@ -1,0 +1,10 @@
+_target_: diffusion.conditional_diffusion.GaussianDiffusion
+
+timesteps: 1000
+sampling_timesteps: null
+objective: pred_noise
+beta_schedule: linear
+ddim_sampling_eta: 0.
+offset_noise_strength: 0
+min_snr_loss_weight: False
+min_snr_gamma: 5

@@ -1,0 +1,17 @@
+_target_: trainers.conditional_trainer.CondTrainer
+
+epochs: 50
+log_every: 1000
+cond_scale: 4
+optimizer:
+    _target_: torch.optim.Adam
+    lr: 0.0002
+    betas: [0.9, 0.999]
+dataloader:
+    batch_size: 32
+    num_workers: 4
+    pin_memory: True
+ema:
+    _target_: ema_pytorch.EMA
+    beta: 0.995
+    update_every: 10

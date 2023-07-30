@@ -3,7 +3,11 @@ shared:
   download: True
   root: './data/'
   transform:
-    _target_: torchvision.transforms.ToTensor
+    _target_: torchvision.transforms.Compose
+    transforms:
+      - _target_: torchvision.transforms.RandomHorizontalFlip
+      - _target_: torchvision.transforms.ToTensor
+    
 
 
 train:

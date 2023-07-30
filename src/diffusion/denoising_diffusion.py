@@ -265,6 +265,7 @@ class GaussianDiffusion(BaseDiffusion):
             reversed(range(0, self.num_timesteps)),
             desc="sampling loop time step",
             total=self.num_timesteps,
+            disable=True
         ):
             self_cond = x_start if self.self_condition else None
             img, x_start = self.p_sample(img, t, self_cond)
