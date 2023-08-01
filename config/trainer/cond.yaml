@@ -1,13 +1,14 @@
 _target_: trainers.conditional_trainer.CondTrainer
 
-epochs: 50
+epochs: 200
 log_every: 1000
 cond_scale: 4
 optimizer:
     _target_: torch.optim.Adam
-    lr: 0.0002
+    lr: 0.0001
     betas: [0.9, 0.999]
 dataloader:
+    shuffle: True
     batch_size: 32
     num_workers: 4
     pin_memory: True

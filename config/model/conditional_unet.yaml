@@ -5,7 +5,7 @@ num_classes: 10
 cond_drop_prob: 0.15
 init_dim: null
 out_dim: null
-dim_mults: [1,2,4,8]
+dim_mults: [1,2,2,2]
 channels: 3
 resnet_block_groups: 8
 learned_variance: False

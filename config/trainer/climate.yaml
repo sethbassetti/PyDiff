@@ -7,10 +7,12 @@ optimizer:
     lr: 0.0001
     betas: [0.9, 0.999]
 dataloader:
-    shuffle: True
     batch_size: 32
-    num_workers: 4
-    pin_memory: True
+    num_workers: 0
+    sampler:
+        _target_: data.climate_data_utils.BatchSampler
+        weights: [0.1, 0.9]
+        num_samples: 1000
 ema:
     _target_: ema_pytorch.EMA
     beta: 0.995

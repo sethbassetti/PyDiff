@@ -1,9 +1,9 @@
 defaults:
     - _self_
-    - dataset: mnist
-    - trainer: cond
-    - model: conditional_unet
-    - diffuser: conditional_diffusion
+    - dataset: climate
+    - trainer: base
+    - model: base_unet
+    - diffuser: denoising_diffusion
 
 project_name: diffusion
 

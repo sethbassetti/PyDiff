@@ -55,8 +55,8 @@ class BaseTrainer:
             self.cfg.optimizer, params=model.parameters()
         )
 
-        self.train_loader = DataLoader(train_set, **self.cfg.dataloader)
-        self.val_loader = DataLoader(val_set, **self.cfg.dataloader)
+        # Create dataloaders
+        self.train_loader, self.val_loader = self.create_dataloaders()
 
         # Wrap everything with accelerate
         (
@@ -68,6 +68,12 @@ class BaseTrainer:
             self.model, self.optimizer, self.train_loader, self.val_loader
         )
 
+    def create_dataloaders(self):
+        train_loader = DataLoader(self.train_set, **self.cfg.dataloader)
+        val_loader = DataLoader(self.val_set, **self.cfg.dataloader)
+
+        return train_loader, val_loader
+    
     def train(self):
         """Main training loop"""
 

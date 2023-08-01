@@ -6,4 +6,4 @@ train:
   json_path: "data/IPSL/rcp85_train.json"
 
 val:
-  json_path: "data/CESM/rcp85_train.json"
+  json_path: "data/IPSL/rcp85_val.json"
